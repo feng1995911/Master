@@ -28,40 +28,40 @@ namespace StarForce
 
         public virtual void Initialize()
         {
-            GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
-            GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
+            // GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
+            // GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
 
-            SceneBackground = Object.FindObjectOfType<ScrollableBackground>();
-            if (SceneBackground == null)
-            {
-                Log.Warning("Can not find scene background.");
-                return;
-            }
+            // SceneBackground = Object.FindObjectOfType<ScrollableBackground>();
+            // if (SceneBackground == null)
+            // {
+            //     Log.Warning("Can not find scene background.");
+            //     return;
+            // }
 
-            SceneBackground.VisibleBoundary.gameObject.GetOrAddComponent<HideByBoundary>();
-            GameEntry.Entity.ShowMyAircraft(new MyAircraftData(GameEntry.Entity.GenerateSerialId(), 10000)
-            {
-                Name = "My Aircraft",
-                Position = Vector3.zero,
-            });
+            // SceneBackground.VisibleBoundary.gameObject.GetOrAddComponent<HideByBoundary>();
+            // GameEntry.Entity.ShowMyAircraft(new MyAircraftData(GameEntry.Entity.GenerateSerialId(), 10000)
+            // {
+            //     Name = "My Aircraft",
+            //     Position = Vector3.zero,
+            // });
 
             GameOver = false;
-            m_MyAircraft = null;
+            // m_MyAircraft = null;
         }
 
         public virtual void Shutdown()
         {
-            GameEntry.Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
-            GameEntry.Event.Unsubscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
+            // GameEntry.Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
+            // GameEntry.Event.Unsubscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
         }
 
         public virtual void Update(float elapseSeconds, float realElapseSeconds)
         {
-            if (m_MyAircraft != null && m_MyAircraft.IsDead)
-            {
-                GameOver = true;
-                return;
-            }
+            // if (m_MyAircraft != null && m_MyAircraft.IsDead)
+            // {
+            //     GameOver = true;
+            //     return;
+            // }
         }
 
         protected virtual void OnShowEntitySuccess(object sender, GameEventArgs e)

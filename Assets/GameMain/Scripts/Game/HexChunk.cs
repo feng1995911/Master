@@ -29,7 +29,7 @@ namespace StarForce
     public class HexChunk : MonoBehaviour
     {
         public static List<HexChunk> chunks = new List<HexChunk>();
-        public static int width = 100;
+        public static int width = 150;
         public static float HexHeight = 5;
 
         
@@ -52,6 +52,21 @@ namespace StarForce
         Vector3 offset1;
         Vector3 offset2;
         
+        public static HexChunk GetChunk(Vector3 wPos)
+        {
+            for (int i = 0; i < chunks.Count; i++)
+            {
+                Vector3 tempPos = chunks[i].transform.position;
+
+                //wPos是否超出了Chunk的XZ平面的范围
+                if ((wPos.x < tempPos.x) || (wPos.z < tempPos.z) || (wPos.x >= tempPos.x + 20) || (wPos.z >= tempPos.z + 20))
+                    continue;
+
+                return chunks[i];
+            }
+            return null;
+        }
+
         void Start ()
         {
             //初始化时将自己加入chunks列表
